@@ -84,15 +84,6 @@ export default function Hero({ user }: { user: GithubUser }) {
                     </svg>
                   ),
                 },
-                {
-                  href: "https://id.pinterest.com/natgula/",
-                  label: "Pinterest",
-                  icon: (
-                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                     <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm4 10.5h-2.5V19h-3v-3.5H8v-3h2.5V9h3v3.5H16v3z"/>
-                    </svg>
-                  ),
-                },
               ].map((s) => (
                 <a key={s.label} href={s.href} target="_blank" rel="noreferrer"
                   aria-label={s.label}
