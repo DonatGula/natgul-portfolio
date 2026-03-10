@@ -194,7 +194,7 @@ function PackageCard({ pkg }: { pkg: typeof PACKAGES[0] }) {
         ))}
       </div>
 
-      <a href="https://wa.me/628xxxxxxxxxx?text=Halo%20Natgul%20Design%2C%20saya%20mau%20order%20undangan%20online%20paket%20"
+      <a href="https://wa.me/628155625860?text=Halo%20Natgul%20Design%2C%20saya%20mau%20order%20undangan%20online%20paket%20"
         target="_blank" rel="noreferrer"
         className={`w-full text-center text-sm font-bold py-3 rounded-xl transition-all duration-200 uppercase tracking-widest block ${pkg.highlight ? "btn-pink" : "btn-outline"}`}>
         Pilih Paket {pkg.name} →
@@ -478,7 +478,7 @@ export default function CommissionUndanganPage() {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up delay-300">
-              <a href="https://wa.me/628xxxxxxxxxx?text=Halo%20Natgul%20Design%2C%20saya%20mau%20order%20undangan%20online"
+              <a href="https://wa.me/628155625860?text=Halo%20Natgul%20Design%2C%20saya%20mau%20order%20undangan%20online"
                 target="_blank" rel="noreferrer"
                 className="btn-pink text-base px-8 py-4 flex items-center justify-center gap-2">
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -495,10 +495,6 @@ export default function CommissionUndanganPage() {
               </a>
             </div>
 
-            {/* Contact info note */}
-            <p className="text-sm text-white/20 mt-8 animate-fade-up delay-400">
-              Nomor WA & Instagram bisa diupdate di <code className="text-white/30">commission-undangan/page.tsx</code>
-            </p>
           </div>
         </section>
 
