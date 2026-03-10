@@ -1,6 +1,7 @@
 import { getGithubUser, getGithubRepos } from "@/lib/github";
 import { GithubUser } from "@/lib/types";
 import { COMMISSION_DESAIN } from "@/lib/data";
+import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import GithubSection from "@/components/GithubSection";
 import HasilKarya from "@/components/HasilKarya";
