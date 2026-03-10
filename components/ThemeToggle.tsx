@@ -67,14 +67,7 @@ export default function ThemeToggle() {
             >
               {/* Color swatch */}
               <span className="w-5 h-5 rounded-full flex-shrink-0 ring-2 ring-offset-2 transition-all duration-200"
-                style={{
-                  background: t.accent,
-                  boxShadow: `0 0 10px ${t.accent}60`,
-                  ringColor: theme === t.id ? t.accent : "transparent",
-                  ringOffsetColor: t.bg,
-                  outline: theme === t.id ? `2px solid ${t.accent}` : "none",
-                  outlineOffset: "2px",
-                }} />
+                 />
 
               {/* Label */}
               <span className="text-sm font-bold flex-1" style={{ color: theme === t.id ? t.accent : "var(--text)" }}>
