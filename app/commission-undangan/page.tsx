@@ -245,7 +245,7 @@ export default function CommissionUndanganPage() {
                 </p>
 
                 <div className="animate-fade-up delay-200 text-base mb-8" style={{ color: "rgba(255,45,120,0.4)" }}>
-                  ∘₊✧──────✧₊∘
+                
                 </div>
 
                 {/* Feature pills */}
