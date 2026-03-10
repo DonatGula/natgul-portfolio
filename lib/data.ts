@@ -1,4 +1,4 @@
-import { CommissionItem, HiburanItem } from "./types";
+import { CommissionItem } from "./types";
 
 // ── COMMISSION DESAIN ──────────────────────────────────────────
 // Gambar dari folder public/ lokal kamu
@@ -206,46 +206,5 @@ export const COMMISSION_DESAIN: CommissionItem[] = [
   },
 ];
 
-export const COMMISSION_CHIBI: CommissionItem[] = [
-  {
-    id: 1, title: "Chibi Full Body", category: "chibi", price: "Rp 150.000", emoji: "🎀",
-    tags: ["chibi", "full-body"], color: "#FFE4F0",
-    image: "https://picsum.photos/seed/chibi1/400/600", imageFull: "https://picsum.photos/seed/chibi1/1200/1800", width: 400, height: 600,
-  },
-  {
-    id: 2, title: "Chibi Half Body", category: "chibi", price: "Rp 100.000", emoji: "🌟",
-    tags: ["chibi", "half-body"], color: "#FFF0E4",
-    image: "https://picsum.photos/seed/chibi2/400/500", imageFull: "https://picsum.photos/seed/chibi2/1200/1500", width: 400, height: 500,
-  },
-  {
-    id: 3, title: "Chibi Bust Shot", category: "chibi", price: "Rp 75.000", emoji: "💫",
-    tags: ["chibi", "bust"], color: "#E4F0FF",
-    image: "https://picsum.photos/seed/chibi3/400/400", imageFull: "https://picsum.photos/seed/chibi3/1200/1200", width: 400, height: 400,
-  },
-  {
-    id: 4, title: "Couple Chibi", category: "chibi", price: "Rp 250.000", emoji: "💕",
-    tags: ["couple", "2-char"], color: "#FFE4FA",
-    image: "https://picsum.photos/seed/chibi4/600/400", imageFull: "https://picsum.photos/seed/chibi4/1800/1200", width: 600, height: 400,
-  },
-  {
-    id: 5, title: "Live2D Rigging Basic", category: "live2d", price: "Rp 500.000", emoji: "🎭",
-    tags: ["live2d", "basic"], color: "#E8E4FF",
-    image: "https://picsum.photos/seed/l2d1/400/600", imageFull: "https://picsum.photos/seed/l2d1/1200/1800", width: 400, height: 600,
-  },
-  {
-    id: 6, title: "Live2D Rigging Standard", category: "live2d", price: "Rp 850.000", emoji: "⚙️",
-    tags: ["live2d", "expressions"], color: "#E4FFE8",
-    image: "https://picsum.photos/seed/l2d2/400/600", imageFull: "https://picsum.photos/seed/l2d2/1200/1800", width: 400, height: 600,
-  },
-  {
-    id: 7, title: "Live2D Full Package", category: "live2d", price: "Rp 1.500.000", emoji: "🚀",
-    tags: ["live2d", "physics"], color: "#FFECE4",
-    image: "https://picsum.photos/seed/l2d3/400/600", imageFull: "https://picsum.photos/seed/l2d3/1200/1800", width: 400, height: 600,
-  },
-  {
-    id: 8, title: "VTuber Model Complete", category: "live2d", price: "Rp 2.000.000", emoji: "📡",
-    tags: ["vtuber", "premium"], color: "#E4EEFF",
-    image: "https://picsum.photos/seed/l2d4/400/600", imageFull: "https://picsum.photos/seed/l2d4/1200/1800", width: 400, height: 600,
-  },
-];
+
 
