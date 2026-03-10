@@ -36,13 +36,3 @@ export interface CommissionItem {
   width: number;
   height: number;
 }
-
-export interface HiburanItem {
-  id: number;
-  title: string;
-  category: "movie" | "komik" | "dracin" | "other";
-  rating: number;
-  year: string;
-  genre: string;
-  emoji: string;
-}

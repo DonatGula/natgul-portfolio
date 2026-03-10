@@ -1,6 +1,6 @@
 import { getGithubUser, getGithubRepos } from "@/lib/github";
+import { GithubUser } from "@/lib/types";
 import { COMMISSION_DESAIN } from "@/lib/data";
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import GithubSection from "@/components/GithubSection";
 import HasilKarya from "@/components/HasilKarya";
@@ -8,9 +8,9 @@ import Footer from "@/components/Footer";
 
 export const revalidate = 3600;
 
-const FALLBACK_USER = {
+const FALLBACK_USER: GithubUser = {
   login: "DonatGula",
-  name: "Natgul",
+  name: null,
   avatar_url: "https://avatars.githubusercontent.com/u/DonatGula",
   bio: "Developer & Designer",
   public_repos: 0,
@@ -20,7 +20,7 @@ const FALLBACK_USER = {
 };
 
 export default async function Home() {
-  let user = FALLBACK_USER;
+  let user: GithubUser = FALLBACK_USER;
   let repos: Awaited<ReturnType<typeof getGithubRepos>> = [];
 
   try {
