@@ -58,7 +58,7 @@
 
 /* ── 3. Cyberpunk (neon green) ─────────────────────────── */
 [data-theme="cyberpunk"] {
-  --accent:        #00ff88;
+  --accent:        hsl(152, 100%, 35%);
   --accent-glow:   rgba(0,255,136,0.4);
   --accent-soft:   rgba(0,255,136,0.08);
   --accent-border: rgba(0,255,136,0.3);
