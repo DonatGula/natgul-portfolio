@@ -40,7 +40,7 @@ export default function TypewriterTitle() {
   }, [displayed, isDeleting, paused, wordIdx]);
 
   return (
-    <h1 className="display leading-none" style={{ fontSize:"clamp(5rem,14vw,11rem)", letterSpacing:"-0.04em" }}>
+    <h1 className="display leading-none" style={{ fontSize:"clamp(5rem,1vw,11rem)", letterSpacing:"-0.04em" }}>
       <span className="grad-text-white">{displayed}</span>
       <span style={{ color:"var(--pink)", animation:"blink 0.8s step-end infinite" }}>_</span>
     </h1>

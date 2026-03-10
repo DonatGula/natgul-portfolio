@@ -27,7 +27,7 @@ export default function Hero({ user }: { user: GithubUser }) {
             </div>
 
             <p className="animate-fade-up delay-200 text-white/55 text-lg leading-relaxed max-w-md mb-10"
-              style={{ borderLeft:"3px solid var(--pink)", paddingLeft:"20px" }}>
+              style={{ borderLeft:"3px solid var(--pink)", paddingLeft:"0px" }}>
               Developer & Designer yang suka eksplorasi berbagai hal — dari movie, komik, drakor, hingga project tech dan desain kreatif.
             </p>
 
@@ -84,6 +84,7 @@ export default function Hero({ user }: { user: GithubUser }) {
                     </svg>
                   ),
                 },
+  
               ].map((s) => (
                 <a key={s.label} href={s.href} target="_blank" rel="noreferrer"
                   aria-label={s.label}
@@ -102,12 +103,10 @@ export default function Hero({ user }: { user: GithubUser }) {
           </div>
 
           {/* Right */}
-          <div className="animate-slide-left delay-200 flex justify-center lg:justify-end">
+          <div className="justify-center lg:justify-end">
             <div className="relative animate-float">
               <div className="absolute inset-0 rounded-2xl opacity-60"
-                style={{ background:"radial-gradient(circle,rgba(255,45,120,0.3) 0%,transparent 70%)", filter:"blur(30px)", transform:"scale(1.3)" }} />
-              <div className="absolute inset-[-3px] rounded-2xl animate-spin-slow"
-                style={{ background:"conic-gradient(transparent,transparent,transparent,var(--pink))", borderRadius:"18px" }} />
+                style={{ background:"radial-gradient(circle,rgba(255,45,120,0.3) 0%,transparent 70%)", filter:"blur(30px)", transform:"scale(1.1)" }} />
               <div className="relative rounded-2xl overflow-hidden w-[280px] md:w-[340px]"
                 style={{ border:"1px solid rgba(255,45,120,0.3)", background:"var(--card)" }}>
                 <Image src={user.avatar_url} alt={user.name || user.login}
