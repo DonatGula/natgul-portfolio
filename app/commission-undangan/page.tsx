@@ -10,7 +10,7 @@ const PACKAGES = [
     id: "basic",
     name: "Basic",
     emoji: "🌸",
-    price: "Rp 50.000",
+    price: "Rp -",
     highlight: false,
     features: [
       "1 halaman undangan",
@@ -42,7 +42,7 @@ const PACKAGES = [
     id: "premium",
     name: "Premium",
     emoji: "👑",
-    price: "Rp 150.000",
+    price: "Rp -",
     highlight: false,
     features: [
       "Semua fitur Standard",
