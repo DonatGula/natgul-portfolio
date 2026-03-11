@@ -145,7 +145,7 @@ export default function HasilKarya({ items }: { items: CommissionItem[] }) {
   const next = useCallback(()=>{ if(currentIdx<filtered.length-1) setLightbox(filtered[currentIdx+1].id); },[currentIdx,filtered]);
 
   return (
-    <section id="karya" className="py-1 md:py-2 relative" style={{ background:"var(--bg)" }}>
+    <section id="karya" className="py-10 md:py-10 relative" style={{ background:"var(--bg)" }}>
       {/* Ambient */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] opacity-5 pointer-events-none"
         style={{ background:"radial-gradient(ellipse,var(--pink) 0%,transparent 70%)", filter:"blur(80px)" }} />

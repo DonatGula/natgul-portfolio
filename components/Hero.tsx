@@ -32,8 +32,13 @@ export default function Hero({ user }: { user: GithubUser }) {
             </p>
 
             <div className="animate-fade-up delay-300 flex flex-wrap gap-4 mb-12">
-              <a href="#projects" className="btn-pink text-base">Lihat Projects ↓</a>
-          { /* <a href="/commission-chibi" className="btn-outline text-base">Commission Chibi ✦</a> */ }
+              <a href="#projects" className="btn-outline text-base">Lihat Projects ↓</a>
+              <a href="/commission-desain" className="btn-pink text-base">Desain Grafis ✦</a>
+              <a href="/commission-undangan" className="btn-pink text-base">Undangan Online ✦</a>
+              <a href="/commission-chibi" className="btn-pink text-base">Chibi Live 2D ✦</a>
+             
+            
+
             </div>
 
             {/* Social Media */}
