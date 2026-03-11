@@ -120,7 +120,7 @@ function Lightbox({ items, index, onClose, onPrev, onNext }: {
         className="absolute right-3 top-1/2 -translate-y-1/2 glass w-11 h-11 rounded-xl flex items-center justify-center text-white/60 hover:text-white text-2xl z-10">›</button>
       <div className="animate-scale-in w-[88vw] max-w-lg" onClick={(e) => e.stopPropagation()}>
         <div className="relative rounded-2xl overflow-hidden"
-          style={{ border: "1px solid rgba(255,45,120,0.4)", boxShadow: "0 0 80px rgba(255,45,120,0.2)" }}>
+          style={{ border: "1px solid var(--accent-glow)", boxShadow: "0 0 80px rgba(var(--accent-rgb,255,45,120),0.2)" }}>
           <Image src={item.src} alt={item.label} width={600} height={900}
             className="w-full object-cover" unoptimized priority />
           <div className="absolute bottom-0 left-0 right-0 px-5 py-4 flex items-center justify-between"
@@ -144,7 +144,7 @@ function PreviewCard({ item, onClick }: { item: typeof GALLERY[0]; onClick: () =
           className="object-cover transition-transform duration-700 group-hover:scale-110" unoptimized />
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
           style={{ background: "rgba(8,8,16,0.65)", backdropFilter: "blur(4px)" }}>
-          <span className="glass-pink text-sm font-bold uppercase tracking-wide text-white px-4 py-2 rounded-full">LIHAT ↗</span>
+          <span className="glass-accent text-sm font-bold uppercase tracking-wide text-white px-4 py-2 rounded-full">LIHAT ↗</span>
         </div>
       </div>
       <div className="px-3 py-2.5 flex-shrink-0" style={{ borderTop: "1px solid var(--border)" }}>
@@ -158,15 +158,15 @@ function PreviewCard({ item, onClick }: { item: typeof GALLERY[0]; onClick: () =
 function PackageCard({ pkg }: { pkg: typeof PACKAGES[0] }) {
   return (
     <div className={`relative rounded-2xl p-6 flex flex-col transition-all duration-300 hover:-translate-y-2 ${pkg.highlight ? "border-glow-anim" : "card"}`}
-      style={pkg.highlight ? { boxShadow: "0 20px 60px rgba(255,45,120,0.2)" } : {}}>
+      style={pkg.highlight ? { boxShadow: "0 20px 60px rgba(var(--accent-rgb,255,45,120),0.2)" } : {}}>
       {pkg.highlight && (
         <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full"
-          style={{ background: "var(--pink)", color: "white" }}>  
-          RECOMMENDED
+          style={{ background: "var(--accent)", color: "white" }}>
+          ⭐ Paling Populer
         </div>
       )}
       <div className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl"
-        style={{ background: pkg.highlight ? "var(--pink)" : "rgba(255,255,255,0.1)" }} />
+        style={{ background: pkg.highlight ? "var(--accent)" : "rgba(255,255,255,0.1)" }} />
 
       <div className="flex items-center gap-3 mb-4">
         <span className="text-3xl">{pkg.emoji}</span>
@@ -177,14 +177,14 @@ function PackageCard({ pkg }: { pkg: typeof PACKAGES[0] }) {
       </div>
 
       <div className="mb-5">
-        <span className="display text-4xl" style={{ color: "var(--pink)" }}>{pkg.price}</span>
+        <span className="display text-4xl" style={{ color: "var(--accent)" }}>{pkg.price}</span>
         <span className="text-sm text-white/30 ml-2">/ undangan</span>
       </div>
 
       <div className="space-y-2.5 flex-1 mb-5">
         {pkg.features.map((f) => (
           <div key={f} className="flex gap-2.5 items-start text-sm text-white/60">
-            <span className="mt-0.5 flex-shrink-0" style={{ color: "var(--pink)" }}>✓</span>{f}
+            <span className="mt-0.5 flex-shrink-0" style={{ color: "var(--accent)" }}>✓</span>{f}
           </div>
         ))}
         {pkg.notIncluded.map((f) => (
@@ -194,7 +194,7 @@ function PackageCard({ pkg }: { pkg: typeof PACKAGES[0] }) {
         ))}
       </div>
 
-      <a href="https://wa.me/628155625860?text=Halo%20Natgul%20Design%2C%20saya%20mau%20order%20undangan%20online%20paket%20"
+      <a href="https://wa.me/628xxxxxxxxxx?text=Halo%20Natgul%20Design%2C%20saya%20mau%20order%20undangan%20online%20paket%20"
         target="_blank" rel="noreferrer"
         className={`w-full text-center text-sm font-bold py-3 rounded-xl transition-all duration-200 uppercase tracking-widest block ${pkg.highlight ? "btn-pink" : "btn-outline"}`}>
         Pilih Paket {pkg.name} →
@@ -203,21 +203,87 @@ function PackageCard({ pkg }: { pkg: typeof PACKAGES[0] }) {
   );
 }
 
+
+/* ── Announcement Popup ───────────────────────────────────── */
+function AnnouncementPopup({ onClose }: { onClose: () => void }) {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = ""; };
+  }, []);
+
+  return (
+    <div className="fixed inset-0 z-[300] flex items-center justify-center px-4 animate-fade-in"
+      style={{ background: "rgba(8,8,16,0.85)", backdropFilter: "blur(12px)" }}
+      onClick={onClose}>
+      <div className="animate-scale-in w-full max-w-md relative" onClick={(e) => e.stopPropagation()}>
+        <div className="absolute inset-0 rounded-2xl pointer-events-none"
+          style={{ background: "radial-gradient(circle,var(--accent-glow) 0%,transparent 70%)", filter: "blur(40px)", transform: "scale(1.3)" }} />
+        <div className="relative rounded-2xl overflow-hidden"
+          style={{ background: "var(--card)", border: "1px solid var(--accent-border)", boxShadow: "0 30px 80px rgba(0,0,0,0.5)" }}>
+          <div className="h-1 w-full" style={{ background: "linear-gradient(to right, var(--accent), transparent)" }} />
+          <button onClick={onClose}
+            className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center glass transition-all hover:scale-110"
+            style={{ border: "1px solid var(--border)" }}>
+            <span className="text-sm font-bold" style={{ color: "var(--muted)" }}>x</span>
+          </button>
+          <div className="px-7 py-8">
+            <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
+              style={{ background: "var(--accent-bg)", border: "1px solid var(--accent-border)" }}>
+              <span className="text-2xl">📢</span>
+            </div>
+            <div className="section-label mb-4">Pengumuman</div>
+            <h2 className="display text-2xl text-white mb-4 leading-snug">Info untuk Kamu 👋</h2>
+            <p className="text-base leading-relaxed mb-7" style={{ color: "var(--muted)" }}>
+              Maaf, untuk <span className="text-white font-semibold">Undangan Online</span> contoh website belum tersedia.
+              Jika ingin order, langsung hubungi kami via{" "}
+              <span className="font-semibold" style={{ color: "var(--accent)" }}>WhatsApp</span> atau{" "}
+              <span className="font-semibold" style={{ color: "var(--accent)" }}>Instagram</span> ya! 🙏
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+             <a href="https://wa.me/628155625860?text=Halo%20Natgul%20Design%2C%20saya%20mau%20order%20undangan%20online"
+                target="_blank" rel="noreferrer" onClick={onClose}
+                className="btn-pink flex-1 text-center text-sm py-3 flex items-center justify-center gap-2">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                WhatsApp
+              </a>
+              <a href="https://www.instagram.com/sam.zen"
+                target="_blank" rel="noreferrer" onClick={onClose}
+                className="btn-outline flex-1 text-center text-sm py-3 flex items-center justify-center gap-2">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                </svg>
+                Instagram
+              </a>
+            </div>
+            <p className="text-xs text-center mt-4" style={{ color: "var(--muted)", opacity: 0.4 }}>
+              Klik di luar atau x untuk tutup
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ── Main Page ────────────────────────────────────────────── */
 export default function CommissionUndanganPage() {
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
+  const [showPopup, setShowPopup] = useState(true);
   const prev = useCallback(() => setLightboxIdx((i) => (i !== null && i > 0 ? i - 1 : i)), []);
   const next = useCallback(() => setLightboxIdx((i) => (i !== null && i < GALLERY.length - 1 ? i + 1 : i)), []);
 
   return (
     <>
       <Navbar />
+      {showPopup && <AnnouncementPopup onClose={() => setShowPopup(false)} />}
       <main>
 
         {/* ══ HERO ══════════════════════════════════════════════ */}
         <section className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden mesh-bg">
           <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full pointer-events-none"
-            style={{ background: "radial-gradient(circle,rgba(255,45,120,0.15) 0%,transparent 70%)", filter: "blur(100px)" }} />
+            style={{ background: "radial-gradient(circle,var(--accent-soft) 0%,transparent 70%)", filter: "blur(100px)" }} />
           <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full pointer-events-none"
             style={{ background: "radial-gradient(circle,rgba(180,100,255,0.1) 0%,transparent 70%)", filter: "blur(80px)" }} />
           <div className="absolute inset-0 opacity-[0.03]"
@@ -240,19 +306,19 @@ export default function CommissionUndanganPage() {
                 </h1>
 
                 <p className="animate-fade-up delay-200 text-white/50 text-lg leading-relaxed max-w-md mb-4"
-                  style={{ borderLeft: "3px solid var(--pink)", paddingLeft: "18px" }}>
+                  style={{ borderLeft: "3px solid var(--accent)", paddingLeft: "18px" }}>
                   Undangan digital modern yang elegan, bisa dibuka dari HP tanpa perlu install apapun. Desain custom sesuai konsep impianmu!
                 </p>
 
-                <div className="animate-fade-up delay-200 text-base mb-8" style={{ color: "rgba(255,45,120,0.4)" }}>
-                
+                <div className="animate-fade-up delay-200 text-base mb-8" style={{ color: "var(--accent-glow)" }}>
+                  ∘₊✧──────✧₊∘
                 </div>
 
                 {/* Feature pills */}
                 <div className="animate-fade-up delay-300 flex flex-wrap gap-2 mb-10">
                   {["Countdown Timer","RSVP Form","Galeri Foto","Musik Latar","Link Shareable","Custom Desain"].map((f) => (
                     <span key={f} className="inline-flex items-center gap-1.5 glass text-sm uppercase tracking-wide px-4 py-2 rounded-full">
-                      <span style={{ color: "var(--pink)" }}>✓</span>
+                      <span style={{ color: "var(--accent)" }}>✓</span>
                       <span className="text-white/55">{f}</span>
                     </span>
                   ))}
@@ -269,10 +335,10 @@ export default function CommissionUndanganPage() {
                 <div className="relative w-[280px] md:w-[340px] animate-float">
                   {/* Glow */}
                   <div className="absolute inset-0 rounded-3xl pointer-events-none"
-                    style={{ background: "radial-gradient(circle,rgba(255,45,120,0.3) 0%,transparent 70%)", filter: "blur(50px)", transform: "scale(1.5)" }} />
+                    style={{ background: "radial-gradient(circle,var(--accent-border) 0%,transparent 70%)", filter: "blur(50px)", transform: "scale(1.5)" }} />
                   {/* Spinning border */}
                   <div className="absolute inset-[-4px] rounded-3xl animate-spin-slow pointer-events-none"
-                    style={{ background: "conic-gradient(transparent 0deg,transparent 250deg,var(--pink) 300deg,rgba(255,154,200,0.8) 330deg,transparent 360deg)" }} />
+                    style={{ background: "conic-gradient(transparent 0deg,transparent 250deg,var(--accent) 300deg,rgba(255,154,200,0.8) 330deg,transparent 360deg)" }} />
                   {/* Card */}
                   <div className="relative rounded-3xl overflow-hidden"
                     style={{ border: "1px solid rgba(255,45,120,0.25)", background: "var(--card)" }}>
@@ -281,8 +347,8 @@ export default function CommissionUndanganPage() {
                     <div className="absolute inset-0"
                       style={{ background: "linear-gradient(to top,rgba(8,8,16,1) 0%,rgba(8,8,16,0.2) 40%,transparent 65%)" }} />
                     {/* Live badge */}
-                    <div className="absolute top-4 left-4 flex items-center gap-2 glass-pink rounded-full px-3 py-1.5">
-                      <span className="w-2 h-2 rounded-full bg-[#FF2D78]" style={{ animation: "ping-slow 1.5s infinite" }} />
+                    <div className="absolute top-4 left-4 flex items-center gap-2 glass-accent rounded-full px-3 py-1.5">
+                      <span className="w-2 h-2 rounded-full bg-[var(--accent)]" style={{ animation: "ping-slow 1.5s infinite" }} />
                       <span className="text-xs font-bold uppercase tracking-widest text-white">Natgul Design</span>
                     </div>
                     {/* Bottom info */}
@@ -291,7 +357,7 @@ export default function CommissionUndanganPage() {
                       <div className="text-sm text-white/40 mb-4">Custom · Elegan · Modern</div>
                       <div className="flex gap-2">
                         {["Timer","RSVP","Galeri"].map((tag) => (
-                          <span key={tag} className="glass-pink text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wide" style={{ color: "var(--pink)" }}>
+                          <span key={tag} className="glass-accent text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wide" style={{ color: "var(--accent)" }}>
                             {tag}
                           </span>
                         ))}
@@ -305,12 +371,12 @@ export default function CommissionUndanganPage() {
           </div>
 
           {/* Marquee */}
-          <div className="absolute bottom-0 left-0 right-0 border-t overflow-hidden py-4 text-color-white" style={{ borderColor: "var(--border)" }}>
-            <div className="marquee-wrap text-color-white">
-              <div className="marquee-track animate-marquee text-color-white">
+          <div className="absolute bottom-0 left-0 right-0 border-t overflow-hidden py-4" style={{ borderColor: "var(--border)" }}>
+            <div className="marquee-wrap">
+              <div className="marquee-track animate-marquee">
                 {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
-                  <span key={i} className="text-sm font-semibold uppercase tracking-widest text-white mx-8">
-                    {item} <span style={{ color: "var(--pink)" }}>✦</span>
+                  <span key={i} className="text-sm font-semibold uppercase tracking-widest text-white/20 mx-8">
+                    {item} <span style={{ color: "var(--accent)" }}>✦</span>
                   </span>
                 ))}
               </div>
@@ -321,7 +387,7 @@ export default function CommissionUndanganPage() {
         {/* ══ PREVIEW KARYA ═══════════════════════════════════ */}
         <section id="preview" className="py-20 relative overflow-hidden" style={{ background: "var(--surface)" }}>
           <div className="absolute top-0 right-0 w-[400px] h-[400px] opacity-5 pointer-events-none"
-            style={{ background: "radial-gradient(circle,var(--pink) 0%,transparent 70%)", filter: "blur(80px)" }} />
+            style={{ background: "radial-gradient(circle,var(--accent) 0%,transparent 70%)", filter: "blur(80px)" }} />
           <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
 
             <div className="animate-fade-up mb-12">
@@ -350,7 +416,7 @@ export default function CommissionUndanganPage() {
           <div className="absolute inset-0 opacity-[0.03]"
             style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.5) 1px,transparent 1px)", backgroundSize: "60px 60px" }} />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] opacity-5 pointer-events-none"
-            style={{ background: "radial-gradient(ellipse,var(--pink) 0%,transparent 70%)", filter: "blur(80px)" }} />
+            style={{ background: "radial-gradient(ellipse,var(--accent) 0%,transparent 70%)", filter: "blur(80px)" }} />
 
           <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
             <div className="animate-fade-up mb-4">
@@ -363,12 +429,12 @@ export default function CommissionUndanganPage() {
 
             {/* Starting price note */}
             <div className="animate-fade-up delay-100 flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-10 rounded-xl px-5 py-4"
-              style={{ background: "rgba(255,45,120,0.07)", border: "1px solid rgba(255,45,120,0.2)" }}>
+              style={{ background: "var(--accent-bg)", border: "1px solid rgba(var(--accent-rgb,255,45,120),0.2)" }}>
               <div className="flex items-center gap-2">
                 <span className="text-sm font-bold uppercase tracking-widest text-white/40">Mulai dari</span>
-                <span className="display text-3xl" style={{ color: "var(--pink)" }}>Rp 50.000</span>
+                <span className="display text-3xl" style={{ color: "var(--accent)" }}>Rp 50.000</span>
               </div>
-              <div className="hidden sm:block w-px h-8" style={{ background: "rgba(255,45,120,0.2)" }} />
+              <div className="hidden sm:block w-px h-8" style={{ background: "rgba(var(--accent-rgb,255,45,120),0.2)" }} />
               <span className="text-sm text-white/40 italic">*Harga naik sesuai kompleksitas & add-on yang diminta</span>
             </div>
 
@@ -392,7 +458,7 @@ export default function CommissionUndanganPage() {
                     className={`flex items-center justify-between py-3.5 px-2 ${i < ADDONS.length - 2 || (ADDONS.length % 2 === 0) ? "border-b" : ""}`}
                     style={{ borderColor: "var(--border)" }}>
                     <span className="text-base text-white/55">{a.name}</span>
-                    <span className="text-base font-bold ml-4" style={{ color: "var(--pink)" }}>{a.price}</span>
+                    <span className="text-base font-bold ml-4" style={{ color: "var(--accent)" }}>{a.price}</span>
                   </div>
                 ))}
               </div>
@@ -406,7 +472,7 @@ export default function CommissionUndanganPage() {
         {/* ══ PROSES ORDER ════════════════════════════════════ */}
         <section className="py-20 relative overflow-hidden" style={{ background: "var(--surface)" }}>
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] opacity-5 pointer-events-none"
-            style={{ background: "radial-gradient(circle,var(--pink) 0%,transparent 70%)", filter: "blur(80px)" }} />
+            style={{ background: "radial-gradient(circle,var(--accent) 0%,transparent 70%)", filter: "blur(80px)" }} />
           <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
 
             <div className="animate-fade-up mb-12">
@@ -424,11 +490,11 @@ export default function CommissionUndanganPage() {
                   {/* Connector line */}
                   {i < STEPS.length - 1 && (
                     <div className="hidden lg:block absolute top-8 left-full w-full h-px z-0"
-                      style={{ background: "linear-gradient(to right,rgba(255,45,120,0.4),transparent)" }} />
+                      style={{ background: "linear-gradient(to right,var(--accent-glow),transparent)" }} />
                   )}
                   <div className="card p-5 relative z-10 hover-lift h-full">
                     <div className="text-3xl mb-3">{s.icon}</div>
-                    <div className="display text-3xl mb-1" style={{ color: "var(--pink)" }}>{s.n}</div>
+                    <div className="display text-3xl mb-1" style={{ color: "var(--accent)" }}>{s.n}</div>
                     <div className="text-base font-bold text-white mb-2 uppercase tracking-wide">{s.title}</div>
                     <div className="text-sm text-white/40 leading-relaxed">{s.desc}</div>
                   </div>
@@ -438,7 +504,7 @@ export default function CommissionUndanganPage() {
 
             {/* Timeline note */}
             <div className="mt-8 rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 animate-fade-up delay-200"
-              style={{ background: "rgba(255,45,120,0.06)", border: "1px solid rgba(255,45,120,0.2)" }}>
+              style={{ background: "var(--accent-bg)", border: "1px solid rgba(var(--accent-rgb,255,45,120),0.2)" }}>
               <span className="text-3xl">⏱️</span>
               <div>
                 <div className="text-base font-bold text-white mb-0.5">Estimasi Waktu Pengerjaan</div>
@@ -455,16 +521,18 @@ export default function CommissionUndanganPage() {
         {/* ══ CTA ═════════════════════════════════════════════ */}
         <section className="py-24 relative overflow-hidden" style={{ background: "var(--bg)" }}>
           <div className="absolute inset-0 opacity-10 pointer-events-none"
-            style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%,var(--pink) 0%,transparent 70%)", filter: "blur(60px)" }} />
+            style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%,var(--accent) 0%,transparent 70%)", filter: "blur(60px)" }} />
           <div className="absolute inset-0 opacity-[0.03]"
             style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.5) 1px,transparent 1px)", backgroundSize: "60px 60px" }} />
 
           <div className="max-w-xl mx-auto px-6 text-center relative z-10">
             {/* Brand */}
-            <div className="animate-fade-up mb-6 inline-flex items-center gap-3 glass-pink rounded-2xl px-5 py-3">
+            <div className="animate-fade-up mb-6 inline-flex items-center gap-3 glass-accent rounded-2xl px-5 py-3">
               <span className="text-2xl">💌</span>
               <span className="display text-2xl text-white">Natgul Design</span>
             </div>
+
+            <div className="text-lg mb-4 animate-fade-up" style={{ color: "rgba(255,45,120,0.45)" }}>∘₊✧──────✧₊∘</div>
 
             <h2 className="display animate-fade-up delay-100 leading-none mb-5"
               style={{ fontSize: "clamp(2.5rem,7vw,5rem)", letterSpacing: "-0.04em" }}>
@@ -494,7 +562,6 @@ export default function CommissionUndanganPage() {
                 DM via Instagram
               </a>
             </div>
-
           </div>
         </section>
 
