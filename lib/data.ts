@@ -118,6 +118,11 @@ export const COMMISSION_DESAIN: CommissionItem[] = [
   },
   // ── POSTER ──
   {
+    id: 40, title: "Poster 1", category: "poster", price: "Rp 25.000", emoji: "🎪",
+    tags: ["event", "bold"], color: "#FFF5E0",
+    image: "/poster/poster_ (1).webp", imageFull: "/poster/poster_ (1).webp", width: 400, height: 566,
+  },
+  {
     id: 40, title: "Poster 2", category: "poster", price: "Rp 25.000", emoji: "🎪",
     tags: ["event", "bold"], color: "#FFF5E0",
     image: "/poster/poster_ (2).webp", imageFull: "/poster/poster_ (2).webp", width: 400, height: 566,
@@ -141,6 +146,11 @@ export const COMMISSION_DESAIN: CommissionItem[] = [
     id: 44, title: "Poster 8", category: "poster", price: "Rp 25.000", emoji: "💼",
     tags: ["bisnis", "seminar"], color: "#E8EEFF",
     image: "/poster/poster_ (8).webp", imageFull: "/poster/poster_ (8).webp", width: 400, height: 566,
+  },
+   {
+    id: 44, title: "Poster 9", category: "poster", price: "Rp 25.000", emoji: "💼",
+    tags: ["bisnis", "seminar"], color: "#E8EEFF",
+    image: "/poster/poster_ (9).webp", imageFull: "/poster/poster_ (9).webp", width: 400, height: 566,
   },
   {
     id: 45, title: "Poster 10", category: "poster", price: "Rp 25.000", emoji: "🎨",

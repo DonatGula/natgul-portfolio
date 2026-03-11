@@ -564,10 +564,8 @@ export default function CommissionUndanganPage() {
             </div>
           </div>
         </section>
-
       </main>
       <Footer />
-
       {lightboxIdx !== null && (
         <Lightbox items={GALLERY} index={lightboxIdx}
           onClose={() => setLightboxIdx(null)} onPrev={prev} onNext={next} />
