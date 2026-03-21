@@ -122,7 +122,7 @@ export default function Hero({ user }: { user: GithubUser }) {
                   <div className="text-sm text-white/40 mt-0.5">{user.bio || "Developer & Designer"}</div>
                   <a href={user.html_url} target="_blank" rel="noreferrer"
                     className="inline-block mt-3 text-sm font-bold uppercase tracking-widest px-3 py-1.5 rounded transition-all hover:bg-white hover:text-black"
-                    style={{ border:"1px solid rgba(255,255,255,0.2)", color:"white" }}>
+                    style={{ border:"1px solid rgba(255,255,255,0.2)" }}>
                     VISIT ↗
                   </a>
                 </div>
