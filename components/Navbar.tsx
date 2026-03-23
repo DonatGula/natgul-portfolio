@@ -47,7 +47,7 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
-          <a href="https://www.samstore.my.id" target="_blank" rel="noreferrer"
+          <a href="https://samstore.my.id" target="_blank" rel="noreferrer"
             className="ml-1 btn-outline py-2.5 px-4 text-sm">TopUp ↗</a>
 
           {/* Theme toggle */}
