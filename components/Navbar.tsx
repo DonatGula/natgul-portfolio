@@ -47,8 +47,8 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
-          <a href="https://github.com/DonatGula" target="_blank" rel="noreferrer"
-            className="ml-1 btn-outline py-2.5 px-4 text-sm">GitHub ↗</a>
+          <a href="https://www.samstore.my.id" target="_blank" rel="noreferrer"
+            className="ml-1 btn-outline py-2.5 px-4 text-sm">TopUp ↗</a>
 
           {/* Theme toggle */}
           <div className="ml-2">
