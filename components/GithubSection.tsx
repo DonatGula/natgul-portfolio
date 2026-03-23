@@ -20,6 +20,7 @@ export default function GithubSection({ user, repos }: { user: GithubUser; repos
             <a href="https://natgul.vercel.app/" target="_blank" rel="noreferrer" className="btn-pink text-base">Movie</a>
             <a href="https://natgul.vercel.app/komik" target="_blank" rel="noreferrer" className="btn-pink text-base">Komik</a>
             <a href="https://github.com/DonatGula/nyxdrama-app/releases/download/NyxDrama_v_1_5_1/NyxDrama.-.v.1.5.1._.BT.apk" target="_blank" rel="noreferrer" className="btn-pink text-base">Dracin</a>
+            <a href="https://samstore.my.id" target="_blank" rel="noreferrer" className="btn-pink text-base">TopUp Game</a>
           </div>
 
         {/* Title */}
